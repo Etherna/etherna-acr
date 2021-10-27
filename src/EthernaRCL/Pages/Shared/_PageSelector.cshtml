@@ -1,0 +1,53 @@
+﻿@*  *   Copyright 2021-present Etherna Sagl
+    *
+    *   Licensed under the Apache License, Version 2.0 (the "License");
+    *   you may not use this file except in compliance with the License.
+    *   You may obtain a copy of the License at
+    *
+    *       http://www.apache.org/licenses/LICENSE-2.0
+    *
+    *   Unless required by applicable law or agreed to in writing, software
+    *   distributed under the License is distributed on an "AS IS" BASIS,
+    *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    *   See the License for the specific language governing permissions and
+    *   limitations under the License.
+*@
+
+@model PageSelectorModel
+
+@if (Model.MaxPage > 0)
+{
+    <div align="center">
+        @if (Model.CurrentPage >= 2)
+        {
+            <a asp-all-route-data="@(new Dictionary<string, string>(Model.RouteData) { { Model.PageParamName, "0" } })">0</a>
+
+            @if (Model.CurrentPage >= 3)
+            {
+                <span> ... </span>
+            }
+        }
+
+        @if (Model.CurrentPage > 0)
+        {
+            <a asp-all-route-data="@(new Dictionary<string, string>(Model.RouteData) { { Model.PageParamName, (Model.CurrentPage - 1).ToString() } })">@(Model.CurrentPage - 1)</a>
+        }
+
+        <b>@Model.CurrentPage</b>
+
+        @if (Model.CurrentPage < Model.MaxPage)
+        {
+            <a asp-all-route-data="@(new Dictionary<string, string>(Model.RouteData) { { Model.PageParamName, (Model.CurrentPage + 1).ToString() } })">@(Model.CurrentPage + 1)</a>
+        }
+
+        @if (Model.CurrentPage <= Model.MaxPage - 2)
+        {
+            @if (Model.MaxPage - Model.CurrentPage >= 3)
+            {
+                <span> ... </span>
+            }
+
+            <a asp-all-route-data="@(new Dictionary<string, string>(Model.RouteData) { { Model.PageParamName, Model.MaxPage.ToString() } })">@Model.MaxPage</a>
+        }
+    </div>
+}
