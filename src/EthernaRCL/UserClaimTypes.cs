@@ -9,8 +9,9 @@ namespace Etherna.RCL
         public const string EtherPreviousAddresses = "ether_prev_addresses";
         public const string IsWeb3Account = "isWeb3Account";
         public const string Role = ClaimTypes.Role;
+        public const string Username = "preferred_username";
 
         public static readonly IEnumerable<string> Names =
-            new[] { EtherAddress, EtherPreviousAddresses, IsWeb3Account, Role };
+            new[] { EtherAddress, EtherPreviousAddresses, IsWeb3Account, Role, Username };
     }
 }
