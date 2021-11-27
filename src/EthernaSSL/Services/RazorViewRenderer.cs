@@ -10,7 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Etherna.RCL.Services
+namespace Etherna.SSL.Services
 {
     public class RazorViewRenderer : IRazorViewRenderer
     {

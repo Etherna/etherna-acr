@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using System;
 
-namespace Etherna.RCL.Filters
+namespace Etherna.SSL.Filters
 {
     public class StatusStartupFilter : IStartupFilter
     {
