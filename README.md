@@ -1,4 +1,4 @@
-Etherna Services Shared library
+Etherna Services Shared Library
 ===============================
 
 Overview
