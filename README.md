@@ -1,5 +1,5 @@
-Etherna RCL
-===========
+Etherna Services Shared library
+===============================
 
 Overview
 --------
@@ -9,7 +9,7 @@ A Razor Class Library for share resources between Etherna Services on Asp.Net Co
 Issue reports
 -------------
 
-If you've discovered a bug, or have an idea for a new feature, please report it to our issue manager based on Jira https://etherna.atlassian.net/projects/ERCL.
+If you've discovered a bug, or have an idea for a new feature, please report it to our issue manager based on Jira https://etherna.atlassian.net/projects/ESSL.
 
 Questions? Problems?
 ---------------------

@@ -1,11 +1,12 @@
-﻿using Etherna.RCL.Services;
+﻿using Etherna.SSL.Services;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Microsoft.Extensions.DependencyInjection
+namespace Etherna.SSL
 {
     public static class ServiceCollectionExtensions
     {
-        public static void AddEthernaRCL(this IServiceCollection services)
+        public static void AddEthernaServicesSharedLibrary(this IServiceCollection services)
         {
             // Register dependencies.
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();

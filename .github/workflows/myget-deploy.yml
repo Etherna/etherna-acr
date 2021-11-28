@@ -1,4 +1,4 @@
-name: Unstable release deploy to MyGet
+name: Release deploy to MyGet
 
 on:
   push:

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Etherna.RCL.Pages.SharedModels
+namespace Etherna.SSL.Pages.SharedModels
 {
     public class PageSelectorModel
     {
