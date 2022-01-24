@@ -15,21 +15,20 @@
 
 @model PageSelectorModel
 
-@*** Warning! First page starts with 1 ***@
-@if (Model.MaxPage > 1)
+@if (Model.MaxPage > Model.FirstPage)
 {
     <div align="center">
-        @if (Model.CurrentPage >= 3)
+        @if (Model.CurrentPage >= Model.FirstPage + 2)
         {
-            <a asp-all-route-data="@(new Dictionary<string, string>(Model.RouteData) { { Model.PageParamName, "1" } })">1</a>
+            <a asp-all-route-data="@(new Dictionary<string, string>(Model.RouteData) { { Model.PageParamName, Model.FirstPage.ToString() } })">@Model.FirstPage</a>
 
-            @if (Model.CurrentPage >= 4)
+            @if (Model.CurrentPage >= Model.FirstPage + 3)
             {
                 <span> ... </span>
             }
         }
 
-        @if (Model.CurrentPage > 1)
+        @if (Model.CurrentPage > Model.FirstPage)
         {
             <a asp-all-route-data="@(new Dictionary<string, string>(Model.RouteData) { { Model.PageParamName, (Model.CurrentPage - 1).ToString() } })">@(Model.CurrentPage - 1)</a>
         }
