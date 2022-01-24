@@ -1,10 +1,9 @@
-name: Release deploy to MyGet
+name: Unstable release to MyGet
 
 on:
   push:
     branches:
     - dev
-    - main
 
 jobs:
   build-test-package:
