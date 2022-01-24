@@ -14,7 +14,7 @@
 
 using System.Collections.Generic;
 
-namespace Etherna.SSL.Pages.SharedModels
+namespace Etherna.ACR.Pages.SharedModels
 {
     public class SearchModel
     {

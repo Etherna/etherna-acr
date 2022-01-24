@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Etherna.SSL.Services
+namespace Etherna.ACR.Services
 {
     public interface IEmailSender
     {

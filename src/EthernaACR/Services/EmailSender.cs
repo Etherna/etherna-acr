@@ -1,5 +1,5 @@
-﻿using Etherna.SSL.Helpers;
-using Etherna.SSL.Settings;
+﻿using Etherna.ACR.Helpers;
+using Etherna.ACR.Settings;
 using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
@@ -8,7 +8,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
-namespace Etherna.SSL.Services
+namespace Etherna.ACR.Services
 {
     public class EmailSender : IEmailSender
     {

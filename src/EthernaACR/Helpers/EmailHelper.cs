@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace Etherna.SSL.Helpers
+namespace Etherna.ACR.Helpers
 {
     public static class EmailHelper
     {

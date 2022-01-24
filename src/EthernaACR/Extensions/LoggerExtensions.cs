@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using System;
 
-namespace Etherna.SSL.Extensions
+namespace Etherna.ACR.Extensions
 {
     /*
      * Always group similar log delegates by type, always use incremental event ids.

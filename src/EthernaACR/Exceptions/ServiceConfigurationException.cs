@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Etherna.SSL.Exceptions
+namespace Etherna.ACR.Exceptions
 {
     public class ServiceConfigurationException : Exception
     {
