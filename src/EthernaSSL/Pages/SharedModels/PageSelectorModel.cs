@@ -5,16 +5,23 @@ namespace Etherna.SSL.Pages.SharedModels
 {
     public class PageSelectorModel
     {
+        /// <summary>
+        /// Constructor for PageSelector partial view Model
+        /// </summary>
+        /// <param name="currentPage">Current page, starting from 1</param>
+        /// <param name="maxPage">Total page count</param>
+        /// <param name="pageParamName">Name of page query parameter</param>
+        /// <param name="routeData">Additional data to route</param>
         public PageSelectorModel(
             int currentPage,
             int maxPage,
             string pageParamName = "p",
             Dictionary<string, string>? routeData = null)
         {
-            if (currentPage < 0)
-                throw new ArgumentOutOfRangeException(nameof(currentPage), "Value can't be negative");
-            if (maxPage < 0)
-                throw new ArgumentOutOfRangeException(nameof(maxPage), "Value can't be negative");
+            if (currentPage < 1)
+                throw new ArgumentOutOfRangeException(nameof(currentPage), "Value can't be less than 1");
+            if (maxPage < 1)
+                throw new ArgumentOutOfRangeException(nameof(maxPage), "Value can't be less than 1");
 
             CurrentPage = currentPage;
             MaxPage = maxPage;
