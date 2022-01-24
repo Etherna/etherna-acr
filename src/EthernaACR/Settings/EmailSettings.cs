@@ -1,4 +1,4 @@
-﻿namespace Etherna.SSL.Settings
+﻿namespace Etherna.ACR.Settings
 {
     public class EmailSettings
     {

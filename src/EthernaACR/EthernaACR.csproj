@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <RootNamespace>Etherna.SSL</RootNamespace>
+    <RootNamespace>Etherna.ACR</RootNamespace>
     
     <Authors>Etherna Sagl</Authors>
     <Description>A RCL for share resources between Etherna Services on Asp.Net Core</Description>
@@ -13,7 +13,7 @@
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
 
-    <RepositoryUrl>https://github.com/Etherna/etherna-ssl</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Etherna/etherna-acr</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>

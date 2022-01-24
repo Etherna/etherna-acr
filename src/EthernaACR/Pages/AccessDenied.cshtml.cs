@@ -12,33 +12,14 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-using Etherna.SSL.Extensions;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
-using System.Diagnostics;
 
-namespace Etherna.SSL.Pages
+namespace Etherna.ACR.Pages
 {
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public class ErrorModel : PageModel
+    public class AccessDeniedModel : PageModel
     {
-        public string? RequestId { get; set; }
-
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-
-        private readonly ILogger<ErrorModel> logger;
-
-        public ErrorModel(ILogger<ErrorModel> logger)
-        {
-            this.logger = logger;
-        }
-
         public void OnGet()
         {
-            RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-
-            logger.RequestError(RequestId);
         }
     }
 }

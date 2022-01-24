@@ -1,8 +1,8 @@
-﻿using Etherna.SSL.Services;
+﻿using Etherna.ACR.Services;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Etherna.SSL
+namespace Etherna.ACR
 {
     public static class ServiceCollectionExtensions
     {
