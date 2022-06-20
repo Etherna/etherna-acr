@@ -48,6 +48,9 @@ namespace Etherna.ACR.Services
         public async Task<string> RenderViewToStringAsync<TModel>(string viewName, TModel model)
         {
             var actionContext = actionContextAccessor.ActionContext;
+            if (actionContext is null)
+                throw new InvalidOperationException();
+
             var view = FindView(actionContext, viewName);
 
             using var output = new StringWriter();
