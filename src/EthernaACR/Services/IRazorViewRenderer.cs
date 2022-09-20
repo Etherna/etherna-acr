@@ -12,12 +12,13 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace Etherna.ACR.Services
 {
     public interface IRazorViewRenderer
     {
-        Task<string> RenderViewToStringAsync<TModel>(string viewName, TModel model);
+        Task<string> RenderViewToStringAsync<TModel>(string viewName, TModel model, ActionContext? actionContext = null);
     }
 }
