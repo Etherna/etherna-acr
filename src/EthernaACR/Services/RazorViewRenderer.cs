@@ -45,9 +45,9 @@ namespace Etherna.ACR.Services
         }
 
         // Methods.
-        public async Task<string> RenderViewToStringAsync<TModel>(string viewName, TModel model)
+        public async Task<string> RenderViewToStringAsync<TModel>(string viewName, TModel model, ActionContext? actionContext = null)
         {
-            var actionContext = actionContextAccessor.ActionContext;
+            actionContext ??= actionContextAccessor.ActionContext;
             if (actionContext is null)
                 throw new InvalidOperationException();
 
