@@ -28,8 +28,8 @@ namespace Etherna.ACR.Pages.SharedModels
         /// <param name="pageParamName">Name of page query parameter</param>
         /// <param name="routeData">Additional data to route</param>
         public PageSelectorModel(
-            int currentPage,
-            int maxPage,
+            long currentPage,
+            long maxPage,
             int firstPage = 0,
             string pageParamName = "p",
             Dictionary<string, string>? routeData = null)
@@ -47,8 +47,8 @@ namespace Etherna.ACR.Pages.SharedModels
         }
 
         public int FirstPage { get; }
-        public int CurrentPage { get; }
-        public int MaxPage { get; }
+        public long CurrentPage { get; }
+        public long MaxPage { get; }
         public string PageParamName { get; }
         public IDictionary<string, string> RouteData { get; }
     }
