@@ -1,0 +1,15 @@
+﻿@using Microsoft.Extensions.Configuration;
+@model IConfiguration
+
+@if (Model.GetChildren().Any())
+{
+    <ul>
+        @foreach (var configSection in Model.GetChildren())
+        {
+            <li>
+                @configSection.Key|@configSection.Value
+            </li>
+            <partial name="_PrintConfigurationPartial" model="configSection" />
+        }
+    </ul>
+}
