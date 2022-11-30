@@ -1,0 +1,32 @@
+﻿@model RequestPageModel
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>@Model.Title</title>
+</head>
+<body>
+
+    <h2>Headers</h2>
+    <ul>
+        @foreach (var header in Model.Request.Headers)
+        {
+            <li>
+            @header.Key|@header.Value
+            </li>
+        }
+    </ul>
+
+    <h2>Values</h2>
+    <ul>
+        <li>Protocol: @Model.Request.Protocol</li>
+        <li>Method: @Model.Request.Method</li>
+        <li>Scheme: @Model.Request.Scheme</li>
+        <li>Host: @Model.Request.Host</li>
+        <li>Path: @Model.Request.Path</li>
+        <li>Query: @Model.Request.QueryString</li>
+    </ul>
+
+</body>
+</html>

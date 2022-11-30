@@ -1,25 +1,23 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Etherna.ACR.Middlewares.PrintConfigurationPage.Views
+namespace Etherna.ACR.Middlewares.DebugPages.Views
 {
-    public class PrintConfigurationPageModel
+    public class ConfigurationPageModel
     {
-        public PrintConfigurationPageModel(
+        // Constructor.
+        public ConfigurationPageModel(
             IConfiguration configuration,
-            PrintConfigurationPageOptions options)
+            DebugPagesOptions options)
         {
             if (options is null)
                 throw new ArgumentNullException(nameof(options));
 
             Configuration = configuration;
-            Title = options.PageTitle;
+            Title = options.ConfigurationPageTitle;
         }
 
+        // Properties.
         public IConfiguration Configuration { get; }
         public string Title { get; }
     }
