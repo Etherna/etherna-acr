@@ -2,28 +2,28 @@
 using Microsoft.Extensions.Options;
 using System;
 
-namespace Etherna.ACR.Middlewares.PrintConfigurationPage
+namespace Etherna.ACR.Middlewares.DebugPages
 {
     public static class ApplicationBuilderExtensions
     {
-        public static IApplicationBuilder UsePrintConfigurationPage(this IApplicationBuilder app)
+        public static IApplicationBuilder UseEthernaAcrDebugPages(this IApplicationBuilder app)
         {
             if (app == null)
                 throw new ArgumentNullException(nameof(app));
 
-            return app.UseMiddleware<PrintConfigurationPageMiddleware>();
+            return app.UseMiddleware<DebugPagesMiddleware>();
         }
 
-        public static IApplicationBuilder UsePrintConfigurationPage(
+        public static IApplicationBuilder UseEthernaAcrDebugPages(
             this IApplicationBuilder app,
-            PrintConfigurationPageOptions options)
+            DebugPagesOptions options)
         {
             if (app == null)
                 throw new ArgumentNullException(nameof(app));
             if (options == null)
                 throw new ArgumentNullException(nameof(options));
 
-            return app.UseMiddleware<PrintConfigurationPageMiddleware>(Options.Create(options));
+            return app.UseMiddleware<DebugPagesMiddleware>(Options.Create(options));
         }
     }
 }
