@@ -21,11 +21,13 @@ namespace Etherna.ACR.Helpers
     public static class EmailHelper
     {
         // Consts.
-        public const string EmailRegex = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
+        public static readonly Regex EmailRegex = new(
+            @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z",
+            RegexOptions.IgnoreCase);
 
         // Static methods.
         public static bool IsValidEmail(string email) =>
-            Regex.IsMatch(email, EmailRegex, RegexOptions.IgnoreCase);
+            EmailRegex.IsMatch(email);
 
         public static string NormalizeEmail(string email)
         {
