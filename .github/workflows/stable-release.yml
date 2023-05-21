@@ -1,4 +1,4 @@
-name: Stable release to MyGet
+name: Stable release deploy to MyGet
 
 on:
   push:
@@ -10,14 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 0
-
-    - name: Setup .NET SDK
-      uses: actions/setup-dotnet@v1
+        
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '6.0.x'
+        dotnet-version: | 
+          6.0.x
+          7.0.x
 
     - name: Build with dotnet
       run: dotnet build --configuration Release

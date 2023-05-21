@@ -13,13 +13,20 @@
     *   limitations under the License.
 *@
 
+@using Ganss.Xss;
+
 @model string
+@{
+    var htmlSanitizer = new HtmlSanitizer();
+    var htmlMessage = htmlSanitizer.Sanitize(
+        (Model ?? "").Replace("\n", "<br>"));
+}
 
 @if (!String.IsNullOrEmpty(Model))
 {
-    var statusMessageClass = Model.StartsWith("Error") ? "danger" : "success";
+    var statusMessageClass = htmlMessage.StartsWith("Error") ? "danger" : "success";
     <div class="alert alert-@statusMessageClass alert-dismissible fade show" role="alert">
-        @Model
+        @Html.Raw(htmlMessage)
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 }
