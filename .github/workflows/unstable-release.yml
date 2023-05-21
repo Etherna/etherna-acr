@@ -1,23 +1,26 @@
-name: Unstable release to MyGet
+name: Unstable release deploy to MyGet
 
 on:
   push:
     branches:
     - dev
+    - 'release/**'
 
 jobs:
   build-test-package:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
-    - name: Setup .NET SDK
-      uses: actions/setup-dotnet@v1
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '6.0.x'
+        dotnet-version: | 
+          6.0.x
+          7.0.x
 
     - name: Build with dotnet
       run: dotnet build --configuration Release
