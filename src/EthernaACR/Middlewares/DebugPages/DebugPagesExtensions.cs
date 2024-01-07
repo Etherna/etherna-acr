@@ -8,8 +8,7 @@ namespace Etherna.ACR.Middlewares.DebugPages
     {
         public static IApplicationBuilder UseEthernaAcrDebugPages(this IApplicationBuilder app)
         {
-            if (app == null)
-                throw new ArgumentNullException(nameof(app));
+            ArgumentNullException.ThrowIfNull(app, nameof(app));
 
             return app.UseMiddleware<DebugPagesMiddleware>();
         }
@@ -18,10 +17,8 @@ namespace Etherna.ACR.Middlewares.DebugPages
             this IApplicationBuilder app,
             DebugPagesOptions options)
         {
-            if (app == null)
-                throw new ArgumentNullException(nameof(app));
-            if (options == null)
-                throw new ArgumentNullException(nameof(options));
+            ArgumentNullException.ThrowIfNull(app, nameof(app));
+            ArgumentNullException.ThrowIfNull(options, nameof(options));
 
             return app.UseMiddleware<DebugPagesMiddleware>(Options.Create(options));
         }

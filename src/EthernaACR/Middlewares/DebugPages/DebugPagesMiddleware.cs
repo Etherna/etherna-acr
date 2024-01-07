@@ -22,8 +22,7 @@ namespace Etherna.ACR.Middlewares.DebugPages
             RequestDelegate next,
             IOptions<DebugPagesOptions> options)
         {
-            if (options is null)
-                throw new ArgumentNullException(nameof(options));
+            ArgumentNullException.ThrowIfNull(options, nameof(options));
 
             this.next = next;
             this.options = options.Value;
@@ -31,15 +30,14 @@ namespace Etherna.ACR.Middlewares.DebugPages
 
         public async Task InvokeAsync(HttpContext context)
         {
-            if (context is null)
-                throw new ArgumentNullException(nameof(context));
+            ArgumentNullException.ThrowIfNull(context, nameof(context));
 
             if (context.Request.Path == options.ConfigurationPagePath)
             {
                 var executor = context.RequestServices.GetRequiredService<IActionResultExecutor<ViewResult>>();
                 var actionContext = new ActionContext(
                     context,
-                    context.GetRouteData() ?? new RouteData(),
+                    context.GetRouteData(),
                     new Microsoft.AspNetCore.Mvc.Abstractions.ActionDescriptor());
                 var viewResult = new ViewResult()
                 {
@@ -60,7 +58,7 @@ namespace Etherna.ACR.Middlewares.DebugPages
                 var executor = context.RequestServices.GetRequiredService<IActionResultExecutor<ViewResult>>();
                 var actionContext = new ActionContext(
                     context,
-                    context.GetRouteData() ?? new RouteData(),
+                    context.GetRouteData(),
                     new Microsoft.AspNetCore.Mvc.Abstractions.ActionDescriptor());
                 var viewResult = new ViewResult()
                 {

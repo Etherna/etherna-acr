@@ -31,8 +31,7 @@ namespace Etherna.ACR.Helpers
 
         public static string NormalizeEmail(string email)
         {
-            if (email is null)
-                throw new ArgumentNullException(nameof(email));
+            ArgumentNullException.ThrowIfNull(email, nameof(email));
 
             email = email.ToUpper(CultureInfo.InvariantCulture); //to upper case
 

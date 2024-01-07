@@ -32,8 +32,7 @@ namespace Etherna.ACR.Services
         // Constructor.
         public EmailSender(IOptions<EmailSettings> opts)
         {
-            if (opts is null)
-                throw new ArgumentNullException(nameof(opts));
+            ArgumentNullException.ThrowIfNull(opts, nameof(opts));
 
             settings = opts.Value;
         }

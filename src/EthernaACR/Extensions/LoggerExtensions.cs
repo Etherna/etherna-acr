@@ -29,7 +29,7 @@ namespace Etherna.ACR.Extensions
             LoggerMessage.Define<string>(
                 LogLevel.Error,
                 new EventId(0, nameof(RequestError)),
-                "Request {RequestId} throwed error");
+                "Request {RequestId} threw error");
 
         // Methods.
         public static void RequestError(this ILogger logger, string requestId) =>

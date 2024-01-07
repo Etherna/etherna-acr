@@ -8,8 +8,7 @@ namespace Etherna.ACR.Middlewares.DebugPages.Views
         // Constructor.
         public RequestPageModel(HttpRequest request, DebugPagesOptions options)
         {
-            if (options is null)
-                throw new ArgumentNullException(nameof(options));
+            ArgumentNullException.ThrowIfNull(options, nameof(options));
 
             Request = request;
             Title = options.RequestPageTitle;
