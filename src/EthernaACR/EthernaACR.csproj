@@ -5,7 +5,7 @@
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <RootNamespace>Etherna.ACR</RootNamespace>
     
-    <Authors>Etherna Sagl</Authors>
+    <Authors>Etherna Sa</Authors>
     <Description>A RCL for share resources between Etherna Services on Asp.Net Core</Description>
     
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
