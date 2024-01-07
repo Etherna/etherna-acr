@@ -10,8 +10,7 @@ namespace Etherna.ACR.Middlewares.DebugPages.Views
             IConfiguration configuration,
             DebugPagesOptions options)
         {
-            if (options is null)
-                throw new ArgumentNullException(nameof(options));
+            ArgumentNullException.ThrowIfNull(options, nameof(options));
 
             Configuration = configuration;
             Title = options.ConfigurationPageTitle;
