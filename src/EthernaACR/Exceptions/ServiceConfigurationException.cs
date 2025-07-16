@@ -16,7 +16,7 @@ using System;
 
 namespace Etherna.ACR.Exceptions
 {
-    public class ServiceConfigurationException : Exception
+    public sealed class ServiceConfigurationException : Exception
     {
         public ServiceConfigurationException()
         {
