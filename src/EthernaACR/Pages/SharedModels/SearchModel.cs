@@ -16,26 +16,17 @@ using System.Collections.Generic;
 
 namespace Etherna.ACR.Pages.SharedModels
 {
-    public class SearchModel
+    public class SearchModel(
+        string? query,
+        string? razorPage = null,
+        string? razorPageHandler = null,
+        Dictionary<string, string>? routeData = null,
+        string searchParamName = "q")
     {
-        public SearchModel(
-            string? query,
-            string? razorPage = default,
-            string? razorPageHandler = default,
-            Dictionary<string, string>? routeData = null,
-            string searchParamName = "q")
-        {
-            Query = query ?? "";
-            RazorPage = razorPage;
-            RazorPageHandler = razorPageHandler;
-            RouteData = routeData ?? new Dictionary<string, string>();
-            SearchParamName = searchParamName;
-        }
-
-        public string Query { get; }
-        public string? RazorPage { get; }
-        public string? RazorPageHandler { get; }
-        public IDictionary<string, string> RouteData { get; }
-        public string SearchParamName { get; }
+        public string Query { get; } = query ?? "";
+        public string? RazorPage { get; } = razorPage;
+        public string? RazorPageHandler { get; } = razorPageHandler;
+        public IDictionary<string, string> RouteData { get; } = routeData ?? new Dictionary<string, string>();
+        public string SearchParamName { get; } = searchParamName;
     }
 }

@@ -26,24 +26,12 @@ using System.Threading.Tasks;
 
 namespace Etherna.ACR.Services
 {
-    public class RazorViewRenderer : IRazorViewRenderer
+    public class RazorViewRenderer(
+        IActionContextAccessor actionContextAccessor,
+        ITempDataProvider tempDataProvider,
+        IRazorViewEngine viewEngine)
+        : IRazorViewRenderer
     {
-        // Fields.
-        private readonly IActionContextAccessor actionContextAccessor;
-        private readonly ITempDataProvider tempDataProvider;
-        private readonly IRazorViewEngine viewEngine;
-
-        // Constructor.
-        public RazorViewRenderer(
-            IActionContextAccessor actionContextAccessor,
-            ITempDataProvider tempDataProvider,
-            IRazorViewEngine viewEngine)
-        {
-            this.actionContextAccessor = actionContextAccessor;
-            this.tempDataProvider = tempDataProvider;
-            this.viewEngine = viewEngine;
-        }
-
         // Methods.
         public async Task<string> RenderViewToStringAsync<TModel>(string viewName, TModel model, ActionContext? actionContext = null)
         {

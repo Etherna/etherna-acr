@@ -20,17 +20,9 @@ using System.Linq;
 
 namespace Etherna.ACR.Conventions
 {
-    public class RouteTemplateAuthorizationConvention : IApplicationModelConvention
+    public class RouteTemplateAuthorizationConvention(string routeTemplate, string policyName)
+        : IApplicationModelConvention
     {
-        private readonly string routeTemplate;
-        private readonly string policyName;
-
-        public RouteTemplateAuthorizationConvention(string routeTemplate, string policyName)
-        {
-            this.routeTemplate = routeTemplate;
-            this.policyName = policyName;
-        }
-
         public void Apply(ApplicationModel application)
         {
             ArgumentNullException.ThrowIfNull(application, nameof(application));

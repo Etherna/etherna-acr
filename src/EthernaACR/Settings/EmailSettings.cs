@@ -24,9 +24,9 @@ namespace Etherna.ACR.Settings
         }
 
         public EmailService CurrentService { get; set; } = EmailService.FakeSender;
-        public string DisplayName { get; set; } = default!;
-        public string SendingAddress { get; set; } = default!;
-        public string ServiceKey { get; set; } = default!;
+        public string DisplayName { get; set; } = null!;
+        public string SendingAddress { get; set; } = null!;
+        public string ServiceKey { get; set; } = null!;
         public string? ServiceUser { get; set; }
     }
 }
