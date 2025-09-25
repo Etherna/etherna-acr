@@ -13,9 +13,11 @@
 // If not, see <https://www.gnu.org/licenses/>.
 
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
 
 namespace Etherna.ACR.Pages
 {
+    [Obsolete("Link to new Privacy page https://info.etherna.io/privacy-policy/")]
     public class PrivacyModel : PageModel
     {
         public void OnGet()
