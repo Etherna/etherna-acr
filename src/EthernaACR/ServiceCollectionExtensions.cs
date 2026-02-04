@@ -13,7 +13,6 @@
 // If not, see <https://www.gnu.org/licenses/>.
 
 using Etherna.ACR.Services;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Etherna.ACR
@@ -22,9 +21,6 @@ namespace Etherna.ACR
     {
         public static void AddEthernaServicesSharedLibrary(this IServiceCollection services)
         {
-            // Register dependencies.
-            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
-
             // Register services.
             services.AddScoped<IEmailSender, EmailSender>();
             services.AddScoped<IRazorViewRenderer, RazorViewRenderer>();

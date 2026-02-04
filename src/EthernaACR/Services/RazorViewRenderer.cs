@@ -12,13 +12,15 @@
 // You should have received a copy of the GNU Lesser General Public License along with Etherna ACR.
 // If not, see <https://www.gnu.org/licenses/>.
 
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Routing;
 using System;
 using System.IO;
 using System.Linq;
@@ -27,17 +29,21 @@ using System.Threading.Tasks;
 namespace Etherna.ACR.Services
 {
     public class RazorViewRenderer(
-        IActionContextAccessor actionContextAccessor,
+        IServiceProvider serviceProvider,
         ITempDataProvider tempDataProvider,
         IRazorViewEngine viewEngine)
         : IRazorViewRenderer
     {
         // Methods.
-        public async Task<string> RenderViewToStringAsync<TModel>(string viewName, TModel model, ActionContext? actionContext = null)
+        public async Task<string> RenderViewToStringAsync<TModel>(
+            string viewName,
+            TModel model,
+            ActionContext? actionContext = null)
         {
-            actionContext ??= actionContextAccessor.ActionContext;
-            if (actionContext is null)
-                throw new InvalidOperationException();
+            actionContext ??= new ActionContext(new DefaultHttpContext
+            {
+                RequestServices = serviceProvider
+            }, new RouteData(), new ActionDescriptor());
 
             var view = FindView(actionContext, viewName);
 
@@ -83,7 +89,7 @@ namespace Etherna.ACR.Services
             var searchedLocations = getViewResult.SearchedLocations.Concat(findViewResult.SearchedLocations);
             var errorMessage = string.Join(
                 Environment.NewLine,
-                new[] { $"Unable to find view '{viewName}'. The following locations were searched:" }.Concat(searchedLocations)); ;
+                new[] { $"Unable to find view '{viewName}'. The following locations were searched:" }.Concat(searchedLocations));
 
             throw new InvalidOperationException(errorMessage);
         }
